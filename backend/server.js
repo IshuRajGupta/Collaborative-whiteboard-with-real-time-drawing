@@ -29,7 +29,7 @@ const io = socketIo(server, {
 app.use(express.json());
 
 // MongoDB Connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/whiteboard';
+const MONGODB_URI = 'mongodb+srv://rajrebel1618:dsn1pWQPLSq0BKY1@devproject.r12zlnb.mongodb.net/?retryWrites=true&w=majority&appName=DevProject';
 let useMongoDB = true;
 
 mongoose.connect(MONGODB_URI)
