@@ -19,7 +19,7 @@ export const SocketProvider = ({ children }) => {
   const [socketReady, setSocketReady] = useState(false);
 
   useEffect(() => {
-    const newSocket = io(process.env.REACT_APP_BACKEND_URL);
+    const newSocket = io('https://collaborative-whiteboard-with-real-time-drawing-production.up.railway.app');
     setSocketReady(false);
     newSocket.on('connect', () => {
       setIsConnected(true);

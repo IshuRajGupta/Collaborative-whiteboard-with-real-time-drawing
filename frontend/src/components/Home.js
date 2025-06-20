@@ -204,7 +204,7 @@ function Home() {
     }
     try {
       const res = await fetch(
-        (process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000') + '/api/rooms',
+        ('https://collaborative-whiteboard-with-real-time-drawing-production.up.railway.app') + '/api/rooms',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
