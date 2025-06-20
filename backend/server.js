@@ -13,7 +13,7 @@ dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
-const allowedOrigin = "https://collaborative-whiteboard-with-real-time-drawing-e0d20j0zt.vercel.app";
+const allowedOrigin = "https://collaborative-whiteboard-with-real-time-drawing-41bfty2dl.vercel.app";
 app.use(cors({
   origin: allowedOrigin,
   credentials: true // if you use cookies/auth, otherwise can be omitted
