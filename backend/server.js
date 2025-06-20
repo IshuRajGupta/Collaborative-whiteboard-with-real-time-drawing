@@ -13,15 +13,19 @@ dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
+const allowedOrigin = "https://collaborative-whiteboard-with-real-time-drawing-g1xni7mh7.vercel.app";
+app.use(cors({
+  origin: allowedOrigin,
+  credentials: true // if you use cookies/auth, otherwise can be omitted
+}));
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    origin: allowedOrigin,
     methods: ["GET", "POST"]
   }
 });
 
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
