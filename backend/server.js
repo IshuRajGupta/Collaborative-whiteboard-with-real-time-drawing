@@ -13,10 +13,19 @@ dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
-const allowedOrigins ="*";
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://collaborative-whiteboard-with-real-time-drawing-production.up.railway.app'
+];
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true // if you use cookies/auth, otherwise can be omitted
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 const io = socketIo(server, {
   cors: {
