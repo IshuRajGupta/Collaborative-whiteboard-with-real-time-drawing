@@ -204,7 +204,7 @@ function Home() {
     }
     try {
       const res = await fetch(
-        (process.env.REACT_APP_BACKEND_URL) + '/api/rooms',
+        (process.env.REACT_APP_SOCKET_URL || 'http://localhost:5000') + '/api/rooms',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
