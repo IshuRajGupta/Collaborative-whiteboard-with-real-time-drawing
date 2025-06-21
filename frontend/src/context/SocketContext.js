@@ -19,7 +19,7 @@ export const SocketProvider = ({ children }) => {
   const [socketReady, setSocketReady] = useState(false);
 
   useEffect(() => {
-    const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 'http://localhost:3000';
+    const SOCKET_URL = process.env.REACT_APP_SOCKET_URL;
     const newSocket = io(SOCKET_URL);
     setSocketReady(false);
     newSocket.on('connect', () => {
