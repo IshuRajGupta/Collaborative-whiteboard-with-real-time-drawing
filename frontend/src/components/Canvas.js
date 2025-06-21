@@ -103,7 +103,6 @@ const Canvas = forwardRef(({
   };
 
   const handlePointerDown = (e) => {
-    e.preventDefault();
     drawing.current = true;
     const point = getPointer(e);
     startPoint.current = point;
@@ -133,7 +132,6 @@ const Canvas = forwardRef(({
   };
 
   const handlePointerMove = (e) => {
-    e.preventDefault();
     if (!drawing.current) return;
     const point = getPointer(e);
     if (tool === 'pen' || tool === 'eraser') {
@@ -350,13 +348,10 @@ const Canvas = forwardRef(({
           maxHeight: '80vh',
           objectFit: 'contain',
         }}
-        onMouseDown={handlePointerDown}
-        onMouseMove={handlePointerMove}
-        onMouseUp={handlePointerUp}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
         onDoubleClick={handleDoubleClick}
-        onTouchStart={handlePointerDown}
-        onTouchMove={handlePointerMove}
-        onTouchEnd={handlePointerUp}
       />
     </div>
   );
